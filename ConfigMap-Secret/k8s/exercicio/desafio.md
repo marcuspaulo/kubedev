@@ -3,6 +3,22 @@
 
 ## ​Crie 3 ambientes para a sua API: Developer, Stage e Production. Cada ambiente deve ter as suas respectivas configurações de ambiente.​
 
+A resposta 1: Ao invés de triplicar, bastaria aplicar cada arquivo de acordo com o namespace
+
+Exemplo:
+
+## Criando o Namespace
+```sh
+kubectl create namespace developer
+```
+
+## Criando o MongoDB Secret
+```sh
+kubectl apply -f mongodb/mongodb-secret.yaml -n developer
+```
+
+
+# Outra forma para resolver o desafio
 
 # Criando ambiente MongoDB Developer
 ## Criando o Namespace
