@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-node-affinity
+spec:
+  selector:
+    matchLabels:
+      app: nginx-node-affinity
+  template:
+    metadata:
+      labels:
+        app: nginx-node-affinity
+    spec:
+      containers:
+      - name: nginx-node-affinity
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: prioridade
+                  operator: In #Pode colocar o lt gt
+                  values:
+                    - "1"
