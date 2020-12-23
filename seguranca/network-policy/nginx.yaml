@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-b
+  name: nginx
 spec:
   selector:
     matchLabels:
-      app: nginx-b
+      app: nginx
   template:
     metadata:
       labels:
-        app: nginx-b
+        app: nginx
     spec:
       containers:
-      - name: nginx-b
+      - name: nginx
         image: nginx
         resources:
           limits:
